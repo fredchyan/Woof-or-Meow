@@ -1,0 +1,519 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		292EEF4E1B785D3D000B94D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292EEF4D1B785D3D000B94D5 /* AppDelegate.swift */; };
+		292EEF511B785D3D000B94D5 /* WoofOrMeow.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 292EEF4F1B785D3D000B94D5 /* WoofOrMeow.xcdatamodeld */; };
+		292EEF561B785D3D000B94D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 292EEF541B785D3D000B94D5 /* Main.storyboard */; };
+		292EEF581B785D3D000B94D5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 292EEF571B785D3D000B94D5 /* Images.xcassets */; };
+		292EEF5B1B785D3D000B94D5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 292EEF591B785D3D000B94D5 /* LaunchScreen.xib */; };
+		292EEF671B785D3D000B94D5 /* WoofOrMeowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292EEF661B785D3D000B94D5 /* WoofOrMeowTests.swift */; };
+		292EEF711B789CE8000B94D5 /* Reddit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292EEF701B789CE8000B94D5 /* Reddit.swift */; };
+		297EB67B1B7E68C7001CA918 /* RedditSubmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297EB67A1B7E68C7001CA918 /* RedditSubmission.swift */; };
+		297EB67D1B7EF0F9001CA918 /* PhotowallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297EB67C1B7EF0F9001CA918 /* PhotowallViewController.swift */; };
+		297EB67F1B7FDB6E001CA918 /* PhotowallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297EB67E1B7FDB6E001CA918 /* PhotowallCell.swift */; };
+		297EB6831B805D39001CA918 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297EB6821B805D39001CA918 /* ImageCache.swift */; };
+		2980F2E61B8C435E0058E75B /* WatsonResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2980F2E51B8C435E0058E75B /* WatsonResult.swift */; };
+		29A64B9F1B8D84BA00E3EA2E /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A64B9E1B8D84BA00E3EA2E /* FavoriteViewController.swift */; };
+		29A7DB8B1B93ACC9007D4B5E /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7DB8A1B93ACC9007D4B5E /* HelperFunctions.swift */; };
+		29D588B41B92EEEA008870D1 /* WatsonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D588B31B92EEEA008870D1 /* WatsonButton.swift */; };
+		29DEFFA51B8BC42B00C18FE6 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DEFFA41B8BC42B00C18FE6 /* ImageViewController.swift */; };
+		29F1AFE01B81A203004F3D39 /* Watson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F1AFDF1B81A203004F3D39 /* Watson.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		292EEF611B785D3D000B94D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 292EEF401B785D3D000B94D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 292EEF471B785D3D000B94D5;
+			remoteInfo = WoofOrMeow;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		292EEF481B785D3D000B94D5 /* WoofOrMeow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoofOrMeow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		292EEF4C1B785D3D000B94D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		292EEF4D1B785D3D000B94D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		292EEF501B785D3D000B94D5 /* WoofOrMeow.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WoofOrMeow.xcdatamodel; sourceTree = "<group>"; };
+		292EEF551B785D3D000B94D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		292EEF571B785D3D000B94D5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		292EEF5A1B785D3D000B94D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		292EEF601B785D3D000B94D5 /* WoofOrMeowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoofOrMeowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		292EEF651B785D3D000B94D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		292EEF661B785D3D000B94D5 /* WoofOrMeowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoofOrMeowTests.swift; sourceTree = "<group>"; };
+		292EEF701B789CE8000B94D5 /* Reddit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reddit.swift; sourceTree = "<group>"; };
+		297EB67A1B7E68C7001CA918 /* RedditSubmission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditSubmission.swift; sourceTree = "<group>"; };
+		297EB67C1B7EF0F9001CA918 /* PhotowallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotowallViewController.swift; sourceTree = "<group>"; };
+		297EB67E1B7FDB6E001CA918 /* PhotowallCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotowallCell.swift; sourceTree = "<group>"; };
+		297EB6821B805D39001CA918 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		2980F2E51B8C435E0058E75B /* WatsonResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatsonResult.swift; sourceTree = "<group>"; };
+		29A64B9E1B8D84BA00E3EA2E /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		29A7DB8A1B93ACC9007D4B5E /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		29D588B31B92EEEA008870D1 /* WatsonButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatsonButton.swift; path = ../WatsonButton.swift; sourceTree = "<group>"; };
+		29DEFFA41B8BC42B00C18FE6 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		29F1AFDF1B81A203004F3D39 /* Watson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Watson.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		292EEF451B785D3D000B94D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		292EEF5D1B785D3D000B94D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		292EEF3F1B785D3D000B94D5 = {
+			isa = PBXGroup;
+			children = (
+				292EEF4A1B785D3D000B94D5 /* WoofOrMeow */,
+				292EEF631B785D3D000B94D5 /* WoofOrMeowTests */,
+				292EEF491B785D3D000B94D5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		292EEF491B785D3D000B94D5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				292EEF481B785D3D000B94D5 /* WoofOrMeow.app */,
+				292EEF601B785D3D000B94D5 /* WoofOrMeowTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		292EEF4A1B785D3D000B94D5 /* WoofOrMeow */ = {
+			isa = PBXGroup;
+			children = (
+				CDD30D751B8E468100FE4B48 /* Controller */,
+				CDD30D741B8E467600FE4B48 /* View */,
+				CDD30D721B8E466500FE4B48 /* Model */,
+				292EEF4D1B785D3D000B94D5 /* AppDelegate.swift */,
+				292EEF541B785D3D000B94D5 /* Main.storyboard */,
+				292EEF571B785D3D000B94D5 /* Images.xcassets */,
+				292EEF591B785D3D000B94D5 /* LaunchScreen.xib */,
+				292EEF4F1B785D3D000B94D5 /* WoofOrMeow.xcdatamodeld */,
+				292EEF4B1B785D3D000B94D5 /* Supporting Files */,
+			);
+			path = WoofOrMeow;
+			sourceTree = "<group>";
+		};
+		292EEF4B1B785D3D000B94D5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				292EEF4C1B785D3D000B94D5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		292EEF631B785D3D000B94D5 /* WoofOrMeowTests */ = {
+			isa = PBXGroup;
+			children = (
+				292EEF661B785D3D000B94D5 /* WoofOrMeowTests.swift */,
+				292EEF641B785D3D000B94D5 /* Supporting Files */,
+			);
+			path = WoofOrMeowTests;
+			sourceTree = "<group>";
+		};
+		292EEF641B785D3D000B94D5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				292EEF651B785D3D000B94D5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CDD30D721B8E466500FE4B48 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				29F1AFDF1B81A203004F3D39 /* Watson.swift */,
+				292EEF701B789CE8000B94D5 /* Reddit.swift */,
+				2980F2E51B8C435E0058E75B /* WatsonResult.swift */,
+				297EB6821B805D39001CA918 /* ImageCache.swift */,
+				297EB67A1B7E68C7001CA918 /* RedditSubmission.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CDD30D741B8E467600FE4B48 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				297EB67E1B7FDB6E001CA918 /* PhotowallCell.swift */,
+				29D588B31B92EEEA008870D1 /* WatsonButton.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		CDD30D751B8E468100FE4B48 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				29A64B9E1B8D84BA00E3EA2E /* FavoriteViewController.swift */,
+				29DEFFA41B8BC42B00C18FE6 /* ImageViewController.swift */,
+				29A7DB8A1B93ACC9007D4B5E /* HelperFunctions.swift */,
+				297EB67C1B7EF0F9001CA918 /* PhotowallViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		292EEF471B785D3D000B94D5 /* WoofOrMeow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 292EEF6A1B785D3D000B94D5 /* Build configuration list for PBXNativeTarget "WoofOrMeow" */;
+			buildPhases = (
+				292EEF441B785D3D000B94D5 /* Sources */,
+				292EEF451B785D3D000B94D5 /* Frameworks */,
+				292EEF461B785D3D000B94D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WoofOrMeow;
+			productName = WoofOrMeow;
+			productReference = 292EEF481B785D3D000B94D5 /* WoofOrMeow.app */;
+			productType = "com.apple.product-type.application";
+		};
+		292EEF5F1B785D3D000B94D5 /* WoofOrMeowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 292EEF6D1B785D3D000B94D5 /* Build configuration list for PBXNativeTarget "WoofOrMeowTests" */;
+			buildPhases = (
+				292EEF5C1B785D3D000B94D5 /* Sources */,
+				292EEF5D1B785D3D000B94D5 /* Frameworks */,
+				292EEF5E1B785D3D000B94D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				292EEF621B785D3D000B94D5 /* PBXTargetDependency */,
+			);
+			name = WoofOrMeowTests;
+			productName = WoofOrMeowTests;
+			productReference = 292EEF601B785D3D000B94D5 /* WoofOrMeowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		292EEF401B785D3D000B94D5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Frederick Chyan";
+				TargetAttributes = {
+					292EEF471B785D3D000B94D5 = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = HW79CAR7U4;
+					};
+					292EEF5F1B785D3D000B94D5 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 292EEF471B785D3D000B94D5;
+					};
+				};
+			};
+			buildConfigurationList = 292EEF431B785D3D000B94D5 /* Build configuration list for PBXProject "WoofOrMeow" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 292EEF3F1B785D3D000B94D5;
+			productRefGroup = 292EEF491B785D3D000B94D5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				292EEF471B785D3D000B94D5 /* WoofOrMeow */,
+				292EEF5F1B785D3D000B94D5 /* WoofOrMeowTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		292EEF461B785D3D000B94D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				292EEF561B785D3D000B94D5 /* Main.storyboard in Resources */,
+				292EEF5B1B785D3D000B94D5 /* LaunchScreen.xib in Resources */,
+				292EEF581B785D3D000B94D5 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		292EEF5E1B785D3D000B94D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		292EEF441B785D3D000B94D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29A64B9F1B8D84BA00E3EA2E /* FavoriteViewController.swift in Sources */,
+				29D588B41B92EEEA008870D1 /* WatsonButton.swift in Sources */,
+				297EB67D1B7EF0F9001CA918 /* PhotowallViewController.swift in Sources */,
+				29DEFFA51B8BC42B00C18FE6 /* ImageViewController.swift in Sources */,
+				2980F2E61B8C435E0058E75B /* WatsonResult.swift in Sources */,
+				292EEF4E1B785D3D000B94D5 /* AppDelegate.swift in Sources */,
+				297EB67B1B7E68C7001CA918 /* RedditSubmission.swift in Sources */,
+				29A7DB8B1B93ACC9007D4B5E /* HelperFunctions.swift in Sources */,
+				29F1AFE01B81A203004F3D39 /* Watson.swift in Sources */,
+				297EB67F1B7FDB6E001CA918 /* PhotowallCell.swift in Sources */,
+				292EEF511B785D3D000B94D5 /* WoofOrMeow.xcdatamodeld in Sources */,
+				297EB6831B805D39001CA918 /* ImageCache.swift in Sources */,
+				292EEF711B789CE8000B94D5 /* Reddit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		292EEF5C1B785D3D000B94D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				292EEF671B785D3D000B94D5 /* WoofOrMeowTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		292EEF621B785D3D000B94D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 292EEF471B785D3D000B94D5 /* WoofOrMeow */;
+			targetProxy = 292EEF611B785D3D000B94D5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		292EEF541B785D3D000B94D5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				292EEF551B785D3D000B94D5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		292EEF591B785D3D000B94D5 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				292EEF5A1B785D3D000B94D5 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		292EEF681B785D3D000B94D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		292EEF691B785D3D000B94D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		292EEF6B1B785D3D000B94D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = WoofOrMeow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		292EEF6C1B785D3D000B94D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = WoofOrMeow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		292EEF6E1B785D3D000B94D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WoofOrMeowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WoofOrMeow.app/WoofOrMeow";
+			};
+			name = Debug;
+		};
+		292EEF6F1B785D3D000B94D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WoofOrMeowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WoofOrMeow.app/WoofOrMeow";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		292EEF431B785D3D000B94D5 /* Build configuration list for PBXProject "WoofOrMeow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				292EEF681B785D3D000B94D5 /* Debug */,
+				292EEF691B785D3D000B94D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		292EEF6A1B785D3D000B94D5 /* Build configuration list for PBXNativeTarget "WoofOrMeow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				292EEF6B1B785D3D000B94D5 /* Debug */,
+				292EEF6C1B785D3D000B94D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		292EEF6D1B785D3D000B94D5 /* Build configuration list for PBXNativeTarget "WoofOrMeowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				292EEF6E1B785D3D000B94D5 /* Debug */,
+				292EEF6F1B785D3D000B94D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		292EEF4F1B785D3D000B94D5 /* WoofOrMeow.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				292EEF501B785D3D000B94D5 /* WoofOrMeow.xcdatamodel */,
+			);
+			currentVersion = 292EEF501B785D3D000B94D5 /* WoofOrMeow.xcdatamodel */;
+			path = WoofOrMeow.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 292EEF401B785D3D000B94D5 /* Project object */;
+}

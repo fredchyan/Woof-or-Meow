@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="RedditSubmission" representedClassName="WoofOrMeow.RedditSubmission" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="predictions" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="WatsonResult" inverseName="submission" inverseEntity="WatsonResult" syncable="YES"/>
+    </entity>
+    <entity name="WatsonResult" representedClassName="WoofOrMeow.WatsonResult" syncable="YES">
+        <attribute name="labelName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="labelScore" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="submission" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RedditSubmission" inverseName="predictions" inverseEntity="RedditSubmission" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="RedditSubmission" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="WatsonResult" positionX="-63" positionY="9" width="128" height="90"/>
+    </elements>
+</model>
