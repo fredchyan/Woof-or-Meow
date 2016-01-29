@@ -14,8 +14,13 @@ class FavoriteViewController: UITableViewController, NSFetchedResultsControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        fetchedResultsController.performFetch(nil)
-        fetchedResultsController.delegate = self
+        do {
+            try fetchedResultsController.performFetch()
+            fetchedResultsController.delegate = self
+        } catch {
+            print("fetch error FavoriteViewController viewDidLoad \(error)")
+        }
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -25,7 +30,7 @@ class FavoriteViewController: UITableViewController, NSFetchedResultsControllerD
     
     // MARK: - Table View
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionInfo = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
+        let sectionInfo = self.fetchedResultsController.sections![section] 
         return sectionInfo.numberOfObjects
     }
     
@@ -37,7 +42,7 @@ class FavoriteViewController: UITableViewController, NSFetchedResultsControllerD
             // Here is how to replace the actors array using objectAtIndexPath
             let submission = fetchedResultsController.objectAtIndexPath(indexPath) as! RedditSubmission
             
-            let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier)!
             
             configureCell(cell, withSubmission: submission)
             
@@ -45,7 +50,7 @@ class FavoriteViewController: UITableViewController, NSFetchedResultsControllerD
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var imageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ImageView") as! ImageViewController
+        let imageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ImageView") as! ImageViewController
         imageViewController.favoritedsubmission = fetchedResultsController.objectAtIndexPath(indexPath) as? RedditSubmission
         self.navigationController?.pushViewController(imageViewController, animated: true)
     }
@@ -150,7 +155,7 @@ class FavoriteViewController: UITableViewController, NSFetchedResultsControllerD
     // MARK: - Core Data Convenience
     var sharedContext: NSManagedObjectContext {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        return appDelegate.managedObjectContext!
+        return appDelegate.managedObjectContext
     }
     
     func saveContext() {

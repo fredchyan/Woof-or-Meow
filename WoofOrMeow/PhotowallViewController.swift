@@ -39,18 +39,23 @@ class PhotowallViewController: UIViewController, UICollectionViewDelegate, UICol
     func loadMoreData( lastSubmissionName: String? ) {
         Reddit.sharedInstance().taskForRedditData(lastSubmissionName) { (result, error) -> Void in
             if let error = error {
-                dispatch_async(dispatch_get_main_queue(), {displayError(self, "Oops...! 😿", error)})
+                dispatch_async(dispatch_get_main_queue(), {displayError(self, title: "Oops...! 😿", errorString: error)})
                 return
             }
-            let regex = NSRegularExpression(pattern: "imgur\\.com\\/[a-zA-z0-9]*\\.jpg", options: nil, error: nil)
-            for eachEntry in result! {
-                let currentSubmission = RedditSubmission(dictionary: eachEntry, insertIntoManagedObjectContext: self.temporaryContext)
-                let url = currentSubmission.url! as NSString
-                if let urlMatch = regex?.firstMatchInString(url as String, options: nil, range: NSMakeRange(0, url.length)) {
-                    self.submissions.append(currentSubmission)
+            do{
+                let regex = try NSRegularExpression(pattern: "imgur\\.com\\/[a-zA-z0-9]*\\.jpg", options: [])
+                for eachEntry in result! {
+                    let currentSubmission = RedditSubmission(dictionary: eachEntry, insertIntoManagedObjectContext: self.temporaryContext)
+                    let url = currentSubmission.url! as NSString
+                    if let _ = regex.firstMatchInString(url as String, options: [], range: NSMakeRange(0, url.length)) {
+                        self.submissions.append(currentSubmission)
+                    }
                 }
+                dispatch_async(dispatch_get_main_queue(), {self.collectionView.reloadData()})
+            } catch {
+                print("regex error \(error)")
             }
-            dispatch_async(dispatch_get_main_queue(), {self.collectionView.reloadData()})
+            
         }
     }
     
@@ -97,7 +102,10 @@ class PhotowallViewController: UIViewController, UICollectionViewDelegate, UICol
         } else {
             cell.activityIndicator.startAnimating()
             let task = session.dataTaskWithRequest(request) { (data, response, downloadError) -> Void in
-                if let image = UIImage(data: data) {
+                if data == nil {
+                    return
+                }
+                if let image = UIImage(data: data!) {
                     dispatch_async(dispatch_get_main_queue()) {
                         if let updateCell = self.collectionView.cellForItemAtIndexPath(indexPath) as? PhotowallCell {
                             updateCell.imageView.image = image
@@ -128,7 +136,7 @@ class PhotowallViewController: UIViewController, UICollectionViewDelegate, UICol
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showImageDetail" {
-            var imageVC = segue.destinationViewController as! ImageViewController
+            let imageVC = segue.destinationViewController as! ImageViewController
             imageVC.submission = submissions[selectedIndex]
             imageVC.temporaryContext = self.temporaryContext
         }
@@ -139,7 +147,7 @@ class PhotowallViewController: UIViewController, UICollectionViewDelegate, UICol
     // MARK: - Core Data Convenience
     var sharedContext: NSManagedObjectContext {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        return appDelegate.managedObjectContext!
+        return appDelegate.managedObjectContext
     }
 }
 

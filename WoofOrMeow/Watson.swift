@@ -17,13 +17,13 @@ class Watson : NSObject {
     }
     
     func taskForVisualRecognition (img: UIImage, completionHandler: (result: [[String:AnyObject]]?, error: String?) -> Void ){
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://woof-or-meow.mybluemix.net/uploadpic")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://woof-or-meow.mybluemix.net/uploadpic")!)
         //var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:3000/uploadpic")!)
         request.HTTPMethod = "POST"
-        var imageData = UIImageJPEGRepresentation(img, 0.9)
-        var body:NSMutableString = NSMutableString()
+        let imageData = UIImageJPEGRepresentation(img, 0.9)
+        let body:NSMutableString = NSMutableString()
         let boundaryConstant = "Boundary-hPCkAVcBB7cbabuz";
-        let contentType = "multipart/form-data; boundary=" + boundaryConstant
+        //let contentType = "multipart/form-data; boundary=" + boundaryConstant
         let mimeType = "image/jpeg"
         let fileName = "abcde.jpg"
         let fieldName = "image"
@@ -31,33 +31,32 @@ class Watson : NSObject {
         body.appendFormat("--\(boundaryConstant)\r\n")
         body.appendFormat("Content-Disposition: form-data; name=\"\(fieldName)\"; filename=\"\(fileName)\"\r\n")
         body.appendFormat("Content-Type: \(mimeType)\r\n\r\n")
-        var end:String = "\r\n--\(boundaryConstant)--\r\n"
+        let end:String = "\r\n--\(boundaryConstant)--\r\n"
         
-        var myRequestData:NSMutableData = NSMutableData()
+        let myRequestData:NSMutableData = NSMutableData()
         myRequestData.appendData(body.dataUsingEncoding(NSUTF8StringEncoding)!)
-        myRequestData.appendData(imageData)
+        myRequestData.appendData(imageData!)
         myRequestData.appendData(end.dataUsingEncoding(NSUTF8StringEncoding)!)
         
         request.HTTPBody = myRequestData
         
-        var content:String = "multipart/form-data; boundary=\(boundaryConstant)"
+        let content:String = "multipart/form-data; boundary=\(boundaryConstant)"
         request.setValue(content, forHTTPHeaderField: "Content-Type")
         request.setValue("\(myRequestData.length)", forHTTPHeaderField: "Content-Length")
         request.addValue("en", forHTTPHeaderField: "Accept-Language")
 
         let dataTask = session.dataTaskWithRequest(request){ data, response, error in
             if (error != nil) { return }
-            var parsingError: NSError?
-            //println(NSString(data: data, encoding: NSUTF8StringEncoding))
-            if let parsedResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parsingError) as? [String: AnyObject] {
-                if let parsingError = parsingError {
-                    completionHandler(result: nil, error: parsingError.localizedDescription)
-                } else {
-                    let images = parsedResult["images"] as! [AnyObject]
-                    let image0 = images[0] as! [String: AnyObject]
-                    let labels = image0["labels"] as! [[String : AnyObject]]
-                    completionHandler(result: labels, error: nil)
-                }
+            do {
+                let parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as? [String: AnyObject]
+                let images = parsedResult!["images"] as! [AnyObject]
+                let image0 = images[0] as! [String: AnyObject]
+                let labels = image0["labels"] as! [[String : AnyObject]]
+                completionHandler(result: labels, error: nil)
+            } catch {
+                print("json error \(error)")
+                completionHandler(result: nil, error: "\(error)")
+
             }
 
         }

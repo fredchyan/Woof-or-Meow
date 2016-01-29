@@ -32,18 +32,21 @@ class Reddit : NSObject {
                 completionHandler(result: nil, error: "Failed to download data from Reddit \(error)")
                 return
             }
-            var parsingError: NSError?
-            var parsedResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parsingError) as! [String: AnyObject]
-            
-            if let pageContent = parsedResult["data"]?["children"] as? [AnyObject] {
-                var arrayOfDictionaries = [[String:AnyObject]]()
-                for eachSubmission in pageContent {
-                    if let data = eachSubmission["data"] as? [String:AnyObject] {
-                        arrayOfDictionaries.append(data)
+            do{
+                let parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! [String: AnyObject]
+                if let pageContent = parsedResult["data"]?["children"] as? [AnyObject] {
+                    var arrayOfDictionaries = [[String:AnyObject]]()
+                    for eachSubmission in pageContent {
+                        if let data = eachSubmission["data"] as? [String:AnyObject] {
+                            arrayOfDictionaries.append(data)
+                        }
                     }
+                    completionHandler(result: arrayOfDictionaries, error: nil)
                 }
-                completionHandler(result: arrayOfDictionaries, error: nil)
+            } catch {
+                print("json error: \(error)")
             }
+            
         })
         
         task.resume()

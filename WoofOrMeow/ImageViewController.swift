@@ -23,10 +23,10 @@ class ImageViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         // Coming from FavotiteViewController
-        if let image = favoritedsubmission?.image{
+        if let _ = favoritedsubmission?.image{
              imageView.image = favoritedsubmission?.image
         }
-        else if let image = submission?.image {
+        else if let _ = submission?.image {
             imageView.image = submission?.image
         }
         
@@ -48,22 +48,26 @@ class ImageViewController: UIViewController {
             let fetchRequest = NSFetchRequest(entityName: "RedditSubmission")
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
             fetchRequest.predicate = NSPredicate(format: "name == %@", submission.name!)
-            if let fetchResults = sharedContext.executeFetchRequest(fetchRequest, error: nil) as? [RedditSubmission] {
-                if fetchResults.count != 0 {
-                    displayError(self, "Hrmph... 🐾", "This picture has already been added to the favorites.")
+            do {
+                let fetchResults = try sharedContext.executeFetchRequest(fetchRequest)
+                let fetchedSubmissions = fetchResults as? [RedditSubmission]
+                if fetchedSubmissions?.count != 0 {
+                    displayError(self, title: "Hrmph... 🐾", errorString: "This picture has already been added to the favorites.")
                 } else {
                     let dictionary: [String : AnyObject] = [
                         RedditSubmission.Keys.URL : submission.url!,
                         RedditSubmission.Keys.Name : submission.name!,
                         RedditSubmission.Keys.Title : submission.title!
                     ]
-                    let submissionToBeAdded = RedditSubmission(dictionary: dictionary, insertIntoManagedObjectContext: sharedContext)
+                    _ = RedditSubmission(dictionary: dictionary, insertIntoManagedObjectContext: sharedContext)
                     saveContext()
-                    displayError(self, "Success! 🎉", "This picture is now saved to the favorites.")
+                    displayError(self, title: "Success! 🎉", errorString: "This picture is now saved to the favorites.")
                 }
+            } catch {
+                print("addToFavorite fetch error \(error)")
             }
         } else {
-            displayError(self, "Hrmph... 🐾", "This picture has already been added to the favorites.")
+            displayError(self, title: "Hrmph... 🐾", errorString: "Some thing is not right.")
         }
         
     }
@@ -76,7 +80,7 @@ class ImageViewController: UIViewController {
                 if let image = favoritedsubmission?.image {
                     Watson.sharedInstance().taskForVisualRecognition(image){ result, error in
                         for eachLabel in result! {
-                            var newWatsonResult = WatsonResult(dictionary: eachLabel, insertIntoManagedObjectContext: self.sharedContext)
+                            let newWatsonResult = WatsonResult(dictionary: eachLabel, insertIntoManagedObjectContext: self.sharedContext)
                             newWatsonResult.submission =  self.favoritedsubmission!
                             self.saveContext()
                             self.watsonButton.finish()
@@ -94,7 +98,7 @@ class ImageViewController: UIViewController {
                 Watson.sharedInstance().taskForVisualRecognition(image){ result, error in
                     for eachLabel in result! {
                         // Don't need to save, use temporary context
-                        var newWatsonResult = WatsonResult(dictionary: eachLabel, insertIntoManagedObjectContext: self.temporaryContext)
+                        let newWatsonResult = WatsonResult(dictionary: eachLabel, insertIntoManagedObjectContext: self.temporaryContext)
                         newWatsonResult.submission = self.submission!
                     }
                     dispatch_async(dispatch_get_main_queue()){
@@ -122,14 +126,16 @@ class ImageViewController: UIViewController {
             }
             alert_msg = alert_msg + "\(eachPrediction.labelName) \(eachPrediction.labelScore)\n"
         }
-        displayError(self, alert_title, alert_msg)
+        displayError(self, title: alert_title, errorString: alert_msg)
     }
     
     func share() {
         let activityViewController = UIActivityViewController(activityItems: [imageView.image!], applicationActivities: nil)
-        activityViewController.completionWithItemsHandler = { (a: String!, ok: Bool, items:[AnyObject]!, err: NSError?) -> Void in
+        activityViewController.completionWithItemsHandler = {
+            (a: String?, ok: Bool, items:[AnyObject]?, err: NSError?) -> Void in
             self.dismissViewControllerAnimated(true, completion: nil)
         }
+
         self.presentViewController(activityViewController, animated: true, completion: nil)
     }
     
@@ -137,7 +143,7 @@ class ImageViewController: UIViewController {
     
     var sharedContext: NSManagedObjectContext {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        return appDelegate.managedObjectContext!
+        return appDelegate.managedObjectContext
     }
     
     func saveContext() {

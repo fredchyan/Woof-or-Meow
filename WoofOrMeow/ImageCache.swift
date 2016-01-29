@@ -22,7 +22,6 @@ class ImageCache {
         }
         
         let path = pathForIdentifier(identifier!)
-        var data: NSData?
         
         // First try the memory cache
         if let image = inMemoryCache.objectForKey(path) as? UIImage {
@@ -44,9 +43,13 @@ class ImageCache {
         
         // If the image is nil, remove images from the cache
         if image == nil {
-            println("Deleted from Cache")
+            print("Deleted from Cache")
             inMemoryCache.removeObjectForKey(path)
-            NSFileManager.defaultManager().removeItemAtPath(path, error: nil)
+            do{
+                try NSFileManager.defaultManager().removeItemAtPath(path)
+            } catch {
+                print("error deleting from cache \(error)")
+            }
             return
         }
         
@@ -55,13 +58,13 @@ class ImageCache {
         
         // And in documents directory
         let data = UIImagePNGRepresentation(image!)
-        data.writeToFile(path, atomically: true)
+        data!.writeToFile(path, atomically: true)
     }
     
     // MARK: - Helper
     
     func pathForIdentifier(identifier: String) -> String {
-        let documentsDirectoryURL: NSURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first as! NSURL
+        let documentsDirectoryURL: NSURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
         let fullURL = documentsDirectoryURL.URLByAppendingPathComponent(identifier)
         return fullURL.path!
     }
