@@ -21,9 +21,9 @@
 		2980F2E61B8C435E0058E75B /* WatsonResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2980F2E51B8C435E0058E75B /* WatsonResult.swift */; };
 		29A64B9F1B8D84BA00E3EA2E /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A64B9E1B8D84BA00E3EA2E /* FavoriteViewController.swift */; };
 		29A7DB8B1B93ACC9007D4B5E /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7DB8A1B93ACC9007D4B5E /* HelperFunctions.swift */; };
-		29D588B41B92EEEA008870D1 /* WatsonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D588B31B92EEEA008870D1 /* WatsonButton.swift */; };
 		29DEFFA51B8BC42B00C18FE6 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DEFFA41B8BC42B00C18FE6 /* ImageViewController.swift */; };
 		29F1AFE01B81A203004F3D39 /* Watson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F1AFDF1B81A203004F3D39 /* Watson.swift */; };
+		B662AFCF1C8C156C002B8494 /* WatsonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B662AFCE1C8C156C002B8494 /* WatsonButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,9 +55,9 @@
 		2980F2E51B8C435E0058E75B /* WatsonResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatsonResult.swift; sourceTree = "<group>"; };
 		29A64B9E1B8D84BA00E3EA2E /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		29A7DB8A1B93ACC9007D4B5E /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
-		29D588B31B92EEEA008870D1 /* WatsonButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatsonButton.swift; path = ../WatsonButton.swift; sourceTree = "<group>"; };
 		29DEFFA41B8BC42B00C18FE6 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		29F1AFDF1B81A203004F3D39 /* Watson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Watson.swift; sourceTree = "<group>"; };
+		B662AFCE1C8C156C002B8494 /* WatsonButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatsonButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				297EB67E1B7FDB6E001CA918 /* PhotowallCell.swift */,
-				29D588B31B92EEEA008870D1 /* WatsonButton.swift */,
+				B662AFCE1C8C156C002B8494 /* WatsonButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -272,7 +272,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				29A64B9F1B8D84BA00E3EA2E /* FavoriteViewController.swift in Sources */,
-				29D588B41B92EEEA008870D1 /* WatsonButton.swift in Sources */,
 				297EB67D1B7EF0F9001CA918 /* PhotowallViewController.swift in Sources */,
 				29DEFFA51B8BC42B00C18FE6 /* ImageViewController.swift in Sources */,
 				2980F2E61B8C435E0058E75B /* WatsonResult.swift in Sources */,
@@ -283,6 +282,7 @@
 				297EB67F1B7FDB6E001CA918 /* PhotowallCell.swift in Sources */,
 				292EEF511B785D3D000B94D5 /* WoofOrMeow.xcdatamodeld in Sources */,
 				297EB6831B805D39001CA918 /* ImageCache.swift in Sources */,
+				B662AFCF1C8C156C002B8494 /* WatsonButton.swift in Sources */,
 				292EEF711B789CE8000B94D5 /* Reddit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
