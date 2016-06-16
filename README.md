@@ -1,6 +1,6 @@
 # Woof or Meow
 
-Woof or Meow is an iOS application that display images from the [subreddit /r/aww](https://www.reddit.com/r/aww/). It obtains JSON data from Reddit, extract the URLs and download the images from Imgur. User will be able to store or share the image she likes. In addiction, the user can also submit the picture to IBM Watson Visual Recognition Service for further analysis.
+Woof or Meow is an iOS application that display images from the [subreddit /r/aww](https://www.reddit.com/r/aww/). It obtains JSON data from Reddit, extract the URLs and download the images from Imgur. User will be able to store or share the image she likes. In addition, the user can also submit the picture to IBM Watson Visual Recognition Service for further analysis.
 
 ![main-photowall](http://i.imgur.com/JtW5LrS.gif)
 
